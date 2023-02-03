@@ -1,0 +1,30 @@
+version: '3.3'
+
+services:
+
+  apieco-redis:
+    image: bitnami/redis:5.0.9-debian-10-r142
+    container_name: apieco-redis
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    restart: always
+    ports:
+      - "6490:6379"
+    volumes:
+      - apieco-redis:/bitnami/redis/data
+
+  apieco-mongodb:
+    container_name: mongodb
+    image: bitnami/mongodb:latest
+    volumes:
+      - apieco-mongodb:/bitnami
+    ports:
+      - "27038:27017"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+
+
+volumes:
+  apieco-mongodb:
+  apieco-redis:
+

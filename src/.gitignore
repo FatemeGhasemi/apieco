@@ -1,0 +1,7 @@
+node_modules
+.idea
+.idea/vcs.xml
+public/swagger.json
+development.env
+production.env
+dist
